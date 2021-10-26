@@ -1,8 +1,8 @@
 console.log("testyyy")
 
-const button = document.getElementById('b1')
+// const button = document.getElementById('b1')
 
-button.addEventListener(click, () => {
+form.addEventListener(click, () => {
     rollbar.critical('error')
 })
 
