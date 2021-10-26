@@ -24,10 +24,8 @@ app.get('/style', (req, res) => {
  res.sendFile(path.join(__dirname, '/public/styles.css'))
 })
 
-const button = document.getElementById('1')
-
-button.addEventListener(click, () => {
-    rollbar.critical('error')
+app.get('/js', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/index.js'))
 })
 
 app.post('/', (req, res) => {
