@@ -24,26 +24,14 @@ app.get('/style', (req, res) => {
  res.sendFile(path.join(__dirname, '/public/styles.css'))
 })
 
-let students = []
+const button = document.getElementById('1')
 
-app.post('/api/student', (req, res) => {
-    let {name} = req.body
-    name = name.trim()
+button.addEventListener(click, () => {
+    rollbar.info('error')
+})
 
-    const index = students.findIndex(studentName => studentName === name)
-
-    if(index === -1 && name !== ''){
-    students.push(name)
-    rollbar.log('Student added successfully', {author: 'Zachary', type: 'manual entry'})
-    res.status(200).send(students)
-
-    } else if(name === ''){
-        rollbar.error('No name given')
-        res.status(400).send('Must provide a name')
-    } else {
-        rollbar.critical('Student already exists')
-        res.status(400).send('student already exists')
-    }
+app.post('/', (req, res) => {
+   
 })
 
 app.use(rollbar.errorHandler())
