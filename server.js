@@ -24,11 +24,11 @@ app.get('/style', (req, res) => {
  res.sendFile(path.join(__dirname, '/public/styles.css'))
 })
 
-// const button = document.getElementById('1')
+const button = document.getElementById('1')
 
-// button.addEventListener(click, () => {
-//     rollbar.info('error')
-// })
+button.addEventListener(click, () => {
+    rollbar.critical('error')
+})
 
 app.post('/', (req, res) => {
    
