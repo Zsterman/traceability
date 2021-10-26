@@ -28,8 +28,21 @@ app.get('/js', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.js'))
 })
 
-app.post('/', (req, res) => {
-   
+
+let favorites = []
+
+app.post('/api/favorites', (req, res) => {
+    let {name,favoriteFood} = req.body;
+
+    const newFavoriteObj = {
+        name,
+        favoriteFood
+    }
+    favoriteFood.push(newFavoriteObj)
+
+    rollbar.info('successfully added')
+
+    res.status(200).send('Successfully Added')
 })
 
 app.use(rollbar.errorHandler())
