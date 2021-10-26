@@ -26,9 +26,9 @@ app.get('/style', (req, res) => {
 
 const button = document.getElementById('1')
 
-button.addEventListener(click, () => {
-    rollbar.info('error')
-})
+// button.addEventListener(click, () => {
+//     rollbar.info('error')
+// })
 
 app.post('/', (req, res) => {
    
