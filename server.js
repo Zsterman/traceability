@@ -4,6 +4,8 @@ const path = require('path')
 
 const Rollbar = require('rollbar')
 
+
+
 let rollbar = new Rollbar({
     accessToken: '4f74ee1d88c84ca384c016e99f19242e',
     captureUncaught: true,
@@ -14,6 +16,7 @@ let rollbar = new Rollbar({
 
 const app = express()
 app.use(express.json())
+app.use(rollbar.errorHandler())
 
 app.get('/', (req, res)=> {
     res.sendFile(path.join(__dirname, '/public/index.html'))
@@ -45,7 +48,6 @@ app.post('/api/favorites', (req, res) => {
     res.status(200).send('Successfully Added')
 })
 
-app.use(rollbar.errorHandler())
 
 const port = process.env.PORT || 4545
 
