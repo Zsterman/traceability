@@ -15,7 +15,7 @@ form.addEventListener('submit', (e) => {
     e.preventDefault()
 
     const foodObj = {
-        name: nameInout.value,
+        name: nameInput.value,
         food: foodInput.value
 
     }
